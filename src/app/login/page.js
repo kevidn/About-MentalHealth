@@ -19,7 +19,7 @@ export default function Login() {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       // Redirect to dashboard after successful login
-      router.push("/dashboard");
+      router.push("/");
     } catch (err) {
       setError("Gagal login. Pastikan email dan password benar.");
     }

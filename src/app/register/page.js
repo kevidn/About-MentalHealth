@@ -15,7 +15,7 @@ export default function RegisterPage() {
     e.preventDefault()
     try {
       await createUserWithEmailAndPassword(auth, email, password)
-      router.push('/dashboard') // setelah daftar, langsung ke dashboard
+      router.push('/login') // setelah daftar, langsung ke dashboard
     } catch (err) {
       setError(err.message)
     }
