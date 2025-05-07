@@ -76,8 +76,8 @@ export default function ArticleDetail({ params }) {
       unsubscribeAuth();
       unsubscribeComments();
     };
-  }, [router]);
-
+  }, [params?.id, router]);
+  
   const formatDate = (timestamp) => {
     try {
       if (!timestamp) return '-';
