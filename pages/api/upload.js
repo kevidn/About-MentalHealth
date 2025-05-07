@@ -19,6 +19,7 @@ export default async function handler(req, res) {
     try {
       await fs.access(uploadsDir);
     } catch (error) {
+      console.log(error)
       await fs.mkdir(uploadsDir, { recursive: true });
     }
 
