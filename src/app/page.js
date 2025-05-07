@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { auth } from '../../lib/firebase';
+import Link from 'next/link';
+
 
 export default function Dashboard() {
   const [user, setUser] = useState(null);
@@ -17,28 +19,30 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-96">
-        <h2 className="text-2xl font-bold text-center mb-6 text-blue-600">Dashboard</h2>
-        <p className="text-gray-700 text-lg">
-          Welcome, <span className="text-blue-500">{user ? user.email : "Guest"}</span>
-        </p>
-        {user ? (
-          <button
-            className="mt-6 w-full py-3 bg-red-500 text-white font-semibold rounded-md hover:bg-red-600 transition-colors duration-200"
-            onClick={() => auth.signOut()}
+    <main className="relative h-screen w-full">
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ 
+          backgroundImage: "url('/bg-home.jpg')",
+        }}
+      />
+      <div className="absolute inset-0 bg-black/40" />
+      <div className="relative h-full z-10">
+        <div className="px-8 md:px-16 lg:px-24 pt-32 md:pt-40">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white max-w-4xl">
+            Selamat Datang di About-Mental Health
+          </h1>
+          <p className="mt-6 text-lg md:text-xl text-white/90 max-w-2xl">
+            Platform edukasi seputar kesehatan mental dari sudut pandang Islam, bersama para ahli terpercaya.
+          </p>
+          <Link 
+            href="/dashboard" 
+            className="mt-8 bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-md text-lg font-medium inline-block transition-colors duration-200"
           >
-            Logout
-          </button>
-        ) : (
-          <button
-            className="mt-6 w-full py-3 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition-colors duration-200"
-            onClick={() => router.push("/login")}
-          >
-            Login
-          </button>
-        )}
+            Mulai Sekarang
+          </Link>
+        </div>
       </div>
-    </div>
-  );
+    </main>
+  )
 }

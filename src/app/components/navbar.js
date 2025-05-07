@@ -31,12 +31,12 @@ export default function Navbar() {
         <Link href="/" className={isActive('/')}>Beranda</Link>
         <Link href="/artikel" className={isActive('/artikel')}>Artikel</Link>
         <Link href="/doa" className={isActive('/doa')}>Doa</Link>
-        <Link href="/forum" className={isActive('/forum')}>Forum Diskusi</Link>
+        {/* <Link href="/forum" className={isActive('/forum')}>Forum Diskusi</Link>
         {user && (
           <Link href="/konsultasi" className={isActive('/konsultasi')}>
             Konsultasi
           </Link>
-        )}
+        )} */}
         {!user ? (
           <>
             <Link href="/login" className={`${isActive('/login')} hover:text-blue-500`}>
